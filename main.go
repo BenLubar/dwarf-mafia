@@ -66,7 +66,6 @@ func main() {
 	for _, username := range flag.Args() {
 		english, dwarf := GenerateName(r)
 		profession := professions[r.Intn(len(professions))]
-		burrow := burrows[r.Intn(len(burrows))]
 		players = append(players, Player{
 			Name: PlayerName{
 				User:    username,
@@ -74,12 +73,17 @@ func main() {
 				Dwarf:   dwarf,
 			},
 			Profession:   profession,
-			Burrow:       burrow,
 			RoleName:     "an average citizen",
 			RoleWiki:     "Townie",
 			RoleFlavor:   "",
 			WinCondition: "all the vampires have been eliminated or nothing can prevent this from occurring",
 		})
+	}
+
+	burrowers := r.Perm(flag.NArg())
+	burrowShuffle := r.Perm(len(burrows))
+	for i, j := range burrowers {
+		players[j].Burrow = burrows[burrowShuffle[i%len(burrows)]]
 	}
 
 	const goonFlavor = "Each night you may choose one citizen to feed on. Only one vampire feeds per night to avoid suspicion."
