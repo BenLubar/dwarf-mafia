@@ -3,10 +3,12 @@ package main
 import (
 	"math/rand"
 	"strings"
+
+	"github.com/BenLubar/dwarf-mafia/language"
 )
 
 func GenerateName(r *rand.Rand) (english, dwarf string) {
-	first, front, rear := GenerateNameParts(r)
+	first, front, rear := language.GenerateNameParts(r)
 
 	if r.Intn(3) <= 1 && first.Noun.Singular != "" {
 		english = first.Noun.Singular + " "

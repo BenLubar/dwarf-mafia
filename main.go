@@ -201,10 +201,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := LanguageInit(); err != nil {
-		panic(err)
-	}
-
 	// http://dwarffortresswiki.org/index.php/DF2014:Unit_type_token, but
 	// without any of the meta-professions or the useless professions.
 	professions := []string{"miner", "carpenter", "bowyer", "woodcutter", "engraver", "mason", "animal trainer", "hunter", "trapper", "furnace operator", "weaponsmith", "armorer", "blacksmith", "metalcrafter", "gem cutter", "gem setter", "woodcrafter", "stonecrafter", "leatherworker", "bone carver", "weaver", "clothier", "glassmaker", "potter", "glazer", "wax worker", "strand extractor", "fisherdwarf", "fish cleaner", "cheese maker", "milker", "cook", "thresher", "miller", "butcher", "tanner", "dyer", "planter", "herbalist", "brewer", "soap maker", "potash maker", "lye maker", "wood burner", "shearer", "spinner", "beekeeper", "mechanic", "siege engineer", "siege operator", "pump operator", "clerk", "trader", "architect", "diagnostician", "bone doctor", "suturer", "surgeon", "peasant", "gelder", "bard", "dancer", "sage", "philosopher", "mathematician", "historian", "astronomer", "naturalist", "chemist", "geographer", "scribe", "papermaker", "bookbinder", "tavern keeper"}
